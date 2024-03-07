@@ -51,5 +51,4 @@ public class Tarificateur implements Serializable {
 
     @Column(name = "Cotisation")
     Double cotisation;
-
 }

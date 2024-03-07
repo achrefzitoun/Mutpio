@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8800b1ee-c9b8-4016-9737-2e666fd2377d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Compte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Regime.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Regime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Signature.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Signature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Tarificateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/com/mutpio/pfe/Entities/Tarificateur.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="com.haulmont.jpb.NewClass" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2dLq24hmRFpuupXJExSpGXt1SK3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Adhesion",
+    "last_opened_file_path": "C:/Users/azitoun/Desktop/pfe/Back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="PfeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="pfe" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mutpio.pfe.PfeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8800b1ee-c9b8-4016-9737-2e666fd2377d" name="Changes" comment="" />
+      <created>1709797496035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709797496035</updated>
+      <workItem from="1709797497005" duration="4046000" />
+      <workItem from="1709801578222" duration="7701000" />
+      <workItem from="1709816468824" duration="498000" />
+      <workItem from="1709817113048" duration="5407000" />
+      <workItem from="1709825927554" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

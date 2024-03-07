@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -13,18 +12,17 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Compte implements Serializable {
+public class AdressePostale implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idCompte;
+    Long idAdressePostale;
 
-    String email, password;
+    String adressePostale;
 
-    LocalDate dateCreation;
-
-    @Enumerated(EnumType.STRING)
-    EtatCompte etatCompte;
+    String ville;
 
     @OneToOne
     Prospect prospect;
+
+
 }
