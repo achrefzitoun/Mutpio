@@ -37,4 +37,7 @@ public class Prospect implements Serializable {
     @OneToOne(mappedBy = "prospect")
     Contact contact;
 
+    @OneToOne(mappedBy = "prospect")
+    AdressePostale adressePostale;
+
 }

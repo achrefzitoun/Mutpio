@@ -25,8 +25,5 @@ public class Signature implements Serializable {
     LocalDate dateSignature;
 
     @OneToOne
-    Document contrat;
-
-    @OneToOne
     Devis devis;
 }
