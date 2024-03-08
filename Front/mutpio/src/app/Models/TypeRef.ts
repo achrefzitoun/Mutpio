@@ -1,0 +1,5 @@
+export enum TypeRef {
+  PRELEVEMENT = 'PRELEVEMENT',
+  PRESTATION = 'PRESTATION',
+  TOUS = 'TOUS'
+}

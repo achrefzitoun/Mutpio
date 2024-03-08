@@ -17,9 +17,7 @@ public class Contact implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idContact;
 
-    String email, nummTel, adressePostale, ville;
-
-    Integer codePostale;
+    String email, numTel;
 
     @OneToOne
     Prospect prospect;
