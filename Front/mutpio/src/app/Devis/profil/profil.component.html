@@ -1,0 +1,106 @@
+<div class="col-12">
+  <div class="card" style="margin:200px">
+    <h2 class="text-center" style="color: #e60000 ; margin-bottom: 80px;">Faisons connaissance !</h2>
+
+    <div class="p-fluid p-formgrid grid" style="margin-bottom: 40px;">
+      <div class="field col-12 md:col-4">
+        <label class="font-bold block mb-2" style="color: #e60000">Prénom*</label>
+        <input  pInputText id="firstname" type="text">
+      </div>
+      <div class="field col-12 md:col-4">
+        <label class="font-bold block mb-2" style="color: #e60000">Nom*</label>
+        <input pInputText id="lastname" type="text"/>
+      </div>
+      <div class="field col-12 md:col-4">
+        <label class="font-bold block mb-2" style="color: #e60000">Email*</label>
+        <input pInputText id="address" rows="4"/>
+      </div>
+      <div class="field col-12 md:col-3">
+        <label class="font-bold block mb-2" style="color: #e60000"> Date de naissance* </label>
+        <p-calendar dateFormat="dd.mm.yy"></p-calendar>
+      </div>
+      <div class="field col-12 md:col-3">
+        <label class="font-bold block mb-2" style="color: #e60000"> Date d'adhésion* </label>
+        <p-calendar dateFormat="dd.mm.yy"></p-calendar>
+      </div>
+    </div>
+
+    <div style=" margin-bottom: 80px;">
+      <label class="font-bold block mb-2" style="color: #e60000 ">Votre régime </label> <br>
+      <div style="display: flex; justify-content: center; ">
+
+        <button pRipple type="button" class="custom-button-style p-button-text"
+                [class]="selectedRegime === 'general' ? 'selected' : 'unselected'"
+                (click)="selectRegime('general')" [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}">
+          <i class="pi pi-shield"></i>
+          <strong> RÉGIME GÉNÉRAL </strong> <br>
+        </button>
+
+        <button pRipple type="button" class="custom-button-style p-button-text"
+                [class]="selectedRegime === 'tns' ? 'selected' : 'unselected'"
+                (click)="selectRegime('tns')" [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px' }">
+
+          <div style=" text-align: center;">
+            <i class="pi pi-shield"></i>
+            <strong> TNS TRAVAILLEUR </strong> <br>
+            NON SALARIÉ
+          </div>
+        </button>
+
+        <button pRipple type="button" class="custom-button-style p-button-text"
+                [class]="selectedRegime === 'alsace' ? 'selected' : 'unselected'"
+                (click)="selectRegime('alsace')" [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}" >
+          <div style=" text-align: center;">
+            <i class="pi pi-shield"></i>
+            <strong> RÉGIME LOCAL </strong> <br>
+            ALSACE MOSELLE
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid formgrid">
+      <div class="col-12 md:col-15" style="margin-bottom: 40px;">
+        <div class="field-radiobutton">
+          <p-radioButton [ngStyle]="{'color':'#e60000'}" name="city" value="choix1" [(ngModel)]="valRadio" id="city1"></p-radioButton>
+          <label for="city1">Je suis déjà couvert par un contrat depuis plus d'un an et je souhaite que la mutuelle
+            procède à la résiliation
+            (des informations complémentaires sur votre contrat actuel vous seront nécessaires pour terminer votre
+            adhésion en ligne)</label>
+        </div>
+      </div>
+
+      <div class="p-fluid p-formgrid grid" style="margin-bottom: 40px;">
+        <div *ngIf="valRadio === 'choix1'">
+          <div class="p-fluid p-formgrid grid" >
+            <div class="field col-12 md:col-4">
+              <label class="font-bold block mb-2" style="color: #e60000">Prénom souscripteur*</label>
+              <input pInputText id="prenom" type="text"/>
+            </div>
+            <div class="field col-12 md:col-4">
+              <label class="font-bold block mb-2" style="color: #e60000">Nom souscripteur*</label>
+              <input pInputText id="nom" type="text"/>
+            </div>
+            <div class="field col-12 md:col-4">
+              <label class="font-bold block mb-2" style="color: #e60000">Numéro du contrat*</label>
+              <input pInputTextarea id="email" rows="4"/>
+            </div>
+            <div class="field col-12 md:col-4">
+              <label class="font-bold block mb-2" style="color: #e60000">Nom de votre organisme*</label>
+              <input pInputText id="organisation" type="text"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 md:col-15">
+        <div class="field-radiobutton">
+          <p-radioButton name="city" value="choix2" [(ngModel)]="valRadio"
+                         id="city2"></p-radioButton>
+          <label for="city2">Je ne suis pas couvert ou j'ai déjà résilié mon contrat</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
