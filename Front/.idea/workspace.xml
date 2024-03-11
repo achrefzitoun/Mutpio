@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d574438-373a-469d-9e34-2e9b1531deaf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Back/src/main/java/com/mutpio/pfe/Controllers/a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Back/src/main/java/com/mutpio/pfe/Entities/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Back/src/main/java/com/mutpio/pfe/Entities/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +15,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2dOhDrPkHaxhxvnAdMFSiRtbc3u" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,8 +27,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Adhesion",
-    "last_opened_file_path": "C:/Users/azitoun/Desktop/pfe/Front/mutpio",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/chadjkacem/Desktop/mutPio/Mutpio/Front/mutpio",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -43,6 +42,8 @@
       <option name="presentableId" value="Default" />
       <updated>1709884915826</updated>
       <workItem from="1709884916904" duration="34000" />
+      <workItem from="1709891597566" duration="43000" />
+      <workItem from="1709891642095" duration="54000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,79 @@
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: normal;
+  background: var(--surface-ground);
+  color: var(--text-color);
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.custom-button-style {
+  border: 2px solid #ced4da;
+  color: #495057;
+  border-radius: 5px;
+
+}
+
+.custom-button-style:focus {
+  outline: none; /* Remove focus outline */
+  outline : 0 ;
+  outline-style: none;
+}
+
+.custom-button-style.selected {
+  background-color: transparent;
+  border-color: red;
+  color: red;
+}
+
+
+
+:host ::ng-deep .p-inputtext:hover {
+  border-color: red;
+}
+
+
+:host ::ng-deep .p-inputtext:focus {
+  box-shadow: 0 0 5px red;
+  outline: none; /* Remove default outline on focus */
+  border-color: red;
+}
+
+
+:host ::ng-deep .p-radiobutton
+.p-radiobutton-box.p-highlight,
+:host ::ng-deep .p-radiobutton
+.p-radiobutton-box.p-highlight:hover {
+
+  background-color: white;
+  border-color: red;
+  box-shadow: none;
+}
+
+:host ::ng-deep .p-radiobutton:hover .p-radiobutton-box {
+  border-color: red; /* Set border color to red when hovered */
+}
+
+:host ::ng-deep .p-radiobutton-icon {
+  background-color: red !important;
+}
+
+
+:host ::ng-deep .p-inputtext:-webkit-autofill,
+:host ::ng-deep .p-inputtext:-webkit-autofill:focus {
+  border-color: red !important;
+  color:white;
+}
