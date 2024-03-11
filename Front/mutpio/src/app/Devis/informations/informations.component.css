@@ -1,0 +1,18 @@
+.p-inputtext {
+    outline-color : #DC0029;
+}
+
+
+.p-inputtext:enabled:focus {
+    border-color: #DC0029 !important;
+    box-shadow: 0 0 0 0.04rem #DC0029 !important;
+
+}
+
+.p-inputtext:hover {
+    box-shadow: 0 0 0 0.04rem #DC0029 !important;
+}
+
+label {
+    color: #DC0029;
+}
