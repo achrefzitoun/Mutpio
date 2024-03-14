@@ -5,15 +5,15 @@
     <div class="p-fluid p-formgrid grid" style="margin-bottom: 40px;">
       <div class="field col-12 md:col-4">
         <label class="font-bold block mb-2" style="color: #e60000">Prénom*</label>
-        <input  pInputText id="firstname" type="text">
+        <input pInputText id="firstname" type="text">
       </div>
       <div class="field col-12 md:col-4">
         <label class="font-bold block mb-2" style="color: #e60000">Nom*</label>
-        <input pInputText id="lastname" type="text"/>
+        <input pInputText id="lastname" type="text" />
       </div>
       <div class="field col-12 md:col-4">
         <label class="font-bold block mb-2" style="color: #e60000">Email*</label>
-        <input pInputText id="address" rows="4"/>
+        <input pInputText id="address" rows="4" />
       </div>
       <div class="field col-12 md:col-3">
         <label class="font-bold block mb-2" style="color: #e60000"> Date de naissance* </label>
@@ -30,39 +30,47 @@
       <div style="display: flex; justify-content: center; ">
 
         <button pRipple type="button" class="custom-button-style p-button-text"
-                [class]="selectedRegime === 'general' ? 'selected' : 'unselected'"
-                (click)="selectRegime('general')" [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}">
-          <i class="pi pi-shield"></i>
-          <strong> RÉGIME GÉNÉRAL </strong> <br>
-        </button>
-
-        <button pRipple type="button" class="custom-button-style p-button-text"
-                [class]="selectedRegime === 'tns' ? 'selected' : 'unselected'"
-                (click)="selectRegime('tns')" [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px' }">
-
-          <div style=" text-align: center;">
-            <i class="pi pi-shield"></i>
-            <strong> TNS TRAVAILLEUR </strong> <br>
-            NON SALARIÉ
+          [class]="selectedRegime === 'general' ? 'selected' : 'unselected'" (click)="selectRegime('general')"
+          [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}">
+          <div style="display: flex; justify-content: space-between; align-items: center; ">
+            <i class="pi pi-shield" style="margin-left: 55px;"></i>
+            <div style="text-align: left; margin-right: 80px;">
+              <strong style="font-size: 16px;">RÉGIME GÉNÉRAL</strong>
+            </div>
           </div>
         </button>
 
         <button pRipple type="button" class="custom-button-style p-button-text"
-                [class]="selectedRegime === 'alsace' ? 'selected' : 'unselected'"
-                (click)="selectRegime('alsace')" [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}" >
-          <div style=" text-align: center;">
-            <i class="pi pi-shield"></i>
-            <strong> RÉGIME LOCAL </strong> <br>
-            ALSACE MOSELLE
+          [class]="selectedRegime === 'tns' ? 'selected' : 'unselected'" (click)="selectRegime('tns')"
+          [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px' }">
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <i class="pi pi-shield" style="margin-left: 55px;"></i>
+            <div style="text-align: left; margin-right: 60px;">
+              <strong style="font-size: 18px;"> TNS</strong> <br>
+              <div style="font-size: 11px;"> TRAVAILLEUR NON SALARIÉ </div>
+            </div>
+          </div>
+        </button>
+
+        <button pRipple type="button" class="custom-button-style p-button-text"
+          [class]="selectedRegime === 'alsace' ? 'selected' : 'unselected'" (click)="selectRegime('alsace')"
+          [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <i class="pi pi-shield" style="margin-left: 55px;"></i>
+            <div style="text-align: left; margin-right: 90px;">
+              <strong style="font-size: 18px;"> RÉGIME LOCAL </strong> <br>
+              <div style="font-size: 11px;"> ALSACE MOSELLE </div>
+            </div>
           </div>
         </button>
       </div>
     </div>
 
-    <div class="grid formgrid">
-      <div class="col-12 md:col-15" style="margin-bottom: 40px;">
+    <div class="grid formgrid" style="margin-bottom: 40px;">
+      <div class="col-12 md:col-15" style="margin-bottom: 20px;">
         <div class="field-radiobutton">
-          <p-radioButton [ngStyle]="{'color':'#e60000'}" name="city" value="choix1" [(ngModel)]="valRadio" id="city1"></p-radioButton>
+          <p-radioButton name="choix" value="choix1" [(ngModel)]="valRadio" id="city1"></p-radioButton>
           <label for="city1">Je suis déjà couvert par un contrat depuis plus d'un an et je souhaite que la mutuelle
             procède à la résiliation
             (des informations complémentaires sur votre contrat actuel vous seront nécessaires pour terminer votre
@@ -70,37 +78,253 @@
         </div>
       </div>
 
-      <div class="p-fluid p-formgrid grid" style="margin-bottom: 40px;">
+      <div class="p-fluid p-formgrid grid col-12 md:col-15" style="margin-bottom: 40px;">
         <div *ngIf="valRadio === 'choix1'">
-          <div class="p-fluid p-formgrid grid" >
+          <div class="p-fluid p-formgrid grid">
             <div class="field col-12 md:col-4">
               <label class="font-bold block mb-2" style="color: #e60000">Prénom souscripteur*</label>
-              <input pInputText id="prenom" type="text"/>
+              <input pInputText id="prenom" type="text" />
             </div>
             <div class="field col-12 md:col-4">
               <label class="font-bold block mb-2" style="color: #e60000">Nom souscripteur*</label>
-              <input pInputText id="nom" type="text"/>
+              <input pInputText id="nom" type="text" />
             </div>
             <div class="field col-12 md:col-4">
               <label class="font-bold block mb-2" style="color: #e60000">Numéro du contrat*</label>
-              <input pInputTextarea id="email" rows="4"/>
+              <input pInputTextarea id="numC" rows="4" />
             </div>
             <div class="field col-12 md:col-4">
               <label class="font-bold block mb-2" style="color: #e60000">Nom de votre organisme*</label>
-              <input pInputText id="organisation" type="text"/>
+              <input pInputText id="organisation" type="text" />
             </div>
           </div>
         </div>
       </div>
-
       <div class="col-12 md:col-15">
         <div class="field-radiobutton">
-          <p-radioButton name="city" value="choix2" [(ngModel)]="valRadio"
-                         id="city2"></p-radioButton>
+          <p-radioButton name="choix" value="choix2" [(ngModel)]="valRadio" id="city2"></p-radioButton>
           <label for="city2">Je ne suis pas couvert ou j'ai déjà résilié mon contrat</label>
         </div>
       </div>
     </div>
 
+    <table>
+      <tr>
+        <td style="width: 80%;">
+          <div style="margin-bottom: 60px;">
+            <label class="font-bold mb-2" style="color: #e60000; max-width: 100%;">Bénéficiez-vous de la complémentaire
+              santé solidaire (CSS) ?</label>
+          </div>
+        </td>
+        <td style="width: 20%;">
+          <div style="margin-bottom: 60px;">
+            <p-inputSwitch [(ngModel)]="css" (onChange)="onToggleButtonChange()"></p-inputSwitch>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 80%;">
+          <div style="margin-bottom: 80px;">
+            <label class="font-bold mb-2" style="color: #e60000; max-width: 100%;">Êtes-vous, vous-même ou l'un des
+              membres directs de votre famille,une personne politiquement exposée (PPE) ?</label>
+            <p style="font-size: 11px;">*Sont considérées comme PPE les personnes qui exercent, ou ont cessé d'exercer
+              depuis moins d'un an, des fonctions politiques, juridictionnelles ou administratives pour le compte de la
+              France, d'un État étranger ou d'une organisation internationale, ainsi que leur proche.</p>
+
+          </div>
+        </td>
+        <td style="width: 20%;">
+          <div style="margin-bottom: 80px;">
+            <p-inputSwitch [(ngModel)]="ppe"></p-inputSwitch>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 80%;">
+          <div style="margin-bottom: 50px;">
+            <label class="font-bold mb-2" style="color: #e60000; max-width: 100%;">Ajouter votre conjoint(e)</label>
+          </div>
+        </td>
+        <td style="width: 20%;">
+          <div style="margin-bottom: 80px;">
+            <p-inputSwitch [(ngModel)]="conjoint"></p-inputSwitch>
+          </div>
+        </td>
+      </tr>
+
+      <div *ngIf="conjoint">
+        <div style="margin-bottom: 50px;">
+          <div class="p-card" style="width: 100%; margin-left: 3%; height: 150px; display: flex;">
+
+            <div class="p-card" style="width: 15%; height: 100%; background-color:rgb(167, 167, 167);">
+              <div style="margin-top: 60px; text-align: center; color: white;">
+
+                <strong>Conjoint(e)</strong>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <div style="margin-right: 3%; margin-left: 2%;">
+                <label class="font-bold block mb-4" style="color: #e60000 ; margin-top: 10px;"> Date de naissance*
+                </label>
+                <p-calendar dateFormat="dd.mm.yy"></p-calendar>
+              </div>
+              <div>
+                <label class="font-bold block mb-4" style="color: #e60000 ; margin-top: 10px;"> Régime* </label>
+                <div style="display: flex;">
+
+                  <button pRipple type="button" class="custom-button-style p-button-text"
+                    [class]="selectedRegime === 'general' ? 'selected' : 'unselected'" (click)="selectRegime('general')"
+                    [ngStyle]="{'margin-right': '5px', 'width': '180px' , 'height': '50px'}">
+                    <div style="display: flex; justify-content: space-between; align-items: center;  ">
+                      <i class="pi pi-shield" style="margin-left: 10px;"></i>
+                      <div style="text-align: right; margin-right: 20px; ">
+                        <strong style="font-size: 10px;">RÉGIME GÉNÉRAL</strong>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button pRipple type="button" class="custom-button-style p-button-text"
+                    [class]="selectedRegime === 'tns' ? 'selected' : 'unselected'" (click)="selectRegime('tns')"
+                    [ngStyle]="{'margin-right': '10px', 'width': '180px' , 'height': '50px' }">
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; ">
+                      <i class="pi pi-shield" style="margin-left: 10px;"></i>
+                      <div style="text-align: left;  margin-right: 20px ;">
+                        <strong style="font-size: 10px;">TNS </strong> <br>
+                        <div style="font-size: 7px;">
+                          TRAVAILLEUR NON SALARIÉ
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button pRipple type="button" class="custom-button-style p-button-text"
+                    [class]="selectedRegime === 'alsace' ? 'selected' : 'unselected'" (click)="selectRegime('alsace')"
+                    [ngStyle]="{'margin-right': '5px', 'width': '180px' , 'height': '50px'}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; ">
+                      <i class="pi pi-shield" style="margin-left: 10px;"></i>
+                      <div style="text-align: left; margin-right: 50px ; font-size: 12px;">
+                        <strong style="font-size: 10px;"> RÉGIME LOCAL </strong> <br>
+                        <div style="font-size: 7px;">
+                          ALSACE MOSELLE
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <tr>
+        <td style="width: 80%;">
+          <div style="margin-bottom: 50px;">
+            <label class="font-bold mb-2" style="color: #e60000; max-width: 100%;">Ajouter vos enfants</label>
+          </div>
+        </td>
+        <td>
+          <div class="circle-container">
+            <div class="circle">
+              <span class="child-count" style="text-align: center;">
+                <div style="color: #e60000; font-size: 25px; ">
+                  {{ childCount }}
+                </div> Enfant
+              </span>
+            </div>
+
+            <button class="increment-button"
+              pTooltip="Etudiants ou apprentis, jusque 28 ans sur présentation d’un justificatif 
+            (certificat de scolarité, contrat d’apprentissage). Au chômage à la recherche d’un premier emploi, jusque 21 ans (fin de mois anniversaire) 
+            sur présentation d’une attestation de Pôle Emploi. Handicapés, jusque 30 ans pour ceux qui n’ont aucune rémunération."
+              (click)="incrementChildCount()">+</button>
+          </div>
+        </td>
+      </tr>
+
+      <ng-container *ngFor="let enfant of enfants ; let i = index">
+        <div style="margin-bottom: 20px;">
+
+          <div class="p-card" style="width: 100%; margin-left: 3%; height: 150px; display: flex;">
+
+            <div class="p-card" style="width: 15%; height: 100%; background-color:rgb(167, 167, 167);">
+              <div style="margin-top: 30px; text-align: center; color: white;">
+                <strong>{{ enfant +1 }} <br> Enfant</strong>
+                <p-button icon="pi pi-times" severity="danger" label="Retirer" size="small"
+                  (click)="decrementChildCount(i)"></p-button>
+
+              </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <div style="margin-right: 3%; margin-left: 2%;">
+                <label class="font-bold block mb-4" style="color: #e60000 ; margin-top: 10px;"> Date de naissance*
+                </label>
+                <p-calendar dateFormat="dd.mm.yy"></p-calendar>
+              </div>
+              <div>
+                <label class="font-bold block mb-4" style="color: #e60000 ; margin-top: 10px;"> Régime* </label>
+                <div style="display: flex;">
+
+                  <button pRipple type="button" class="custom-button-style p-button-text"
+                    [class]="selectedRegime === 'general' ? 'selected' : 'unselected'" (click)="selectRegime('general')"
+                    [ngStyle]="{'margin-right': '5px', 'width': '180px' , 'height': '50px'}">
+                    <div style="display: flex; justify-content: space-between; align-items: center;  ">
+                      <i class="pi pi-shield" style="margin-left: 10px;"></i>
+                      <div style="text-align: right; margin-right: 20px; ">
+                        <strong style="font-size: 10px;">RÉGIME GÉNÉRAL</strong>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button pRipple type="button" class="custom-button-style p-button-text"
+                    [class]="selectedRegime === 'tns' ? 'selected' : 'unselected'" (click)="selectRegime('tns')"
+                    [ngStyle]="{'margin-right': '10px', 'width': '180px' , 'height': '50px' }">
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; ">
+                      <i class="pi pi-shield" style="margin-left: 10px;"></i>
+                      <div style="text-align: left;  margin-right: 20px ;">
+                        <strong style="font-size: 10px;">TNS </strong> <br>
+                        <div style="font-size: 7px;">
+                          TRAVAILLEUR NON SALARIÉ
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button pRipple type="button" class="custom-button-style p-button-text"
+                    [class]="selectedRegime === 'alsace' ? 'selected' : 'unselected'" (click)="selectRegime('alsace')"
+                    [ngStyle]="{'margin-right': '5px', 'width': '180px' , 'height': '50px'}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; ">
+                      <i class="pi pi-shield" style="margin-left: 10px;"></i>
+                      <div style="text-align: left; margin-right: 50px ; font-size: 12px;">
+                        <strong style="font-size: 10px;"> RÉGIME LOCAL </strong> <br>
+                        <div style="font-size: 7px;">
+                          ALSACE MOSELLE
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-container>
+    </table>
+
+    <p style="color: #afafaf ;">[*] champs obligatoires</p>
+    <p-button icon="pi pi-times" severity="secondary" label="Annuler" size="small"> </p-button>
+    <p-button icon="pi pi-check" label="Valider&Suivant" severity="danger" [loading]="loading" (onClick)="load()" size="small"></p-button>
+  
+   
+    <p-dialog header="IMPORTANT" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
+      [resizable]="false">
+      <p class="m-0 text-center">
+        Les Mutuelles du Pays-Haut ne sont pas éligibles à la CSS! <br>
+        Contactez votre caisse de maladie pour connaitre la liste des complémentaires santé agréées.
+      </p>
+    </p-dialog>
   </div>
 </div>

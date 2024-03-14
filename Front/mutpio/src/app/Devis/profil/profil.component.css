@@ -13,12 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.card {
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
+
 
 .custom-button-style {
   border: 2px solid #ced4da;
@@ -28,7 +23,7 @@ body {
 }
 
 .custom-button-style:focus {
-  outline: none; /* Remove focus outline */
+  outline: none; 
   outline : 0 ;
   outline-style: none;
 }
@@ -48,7 +43,7 @@ body {
 
 :host ::ng-deep .p-inputtext:focus {
   box-shadow: 0 0 5px red;
-  outline: none; /* Remove default outline on focus */
+  outline: none; 
   border-color: red;
 }
 
@@ -64,7 +59,7 @@ body {
 }
 
 :host ::ng-deep .p-radiobutton:hover .p-radiobutton-box {
-  border-color: red; /* Set border color to red when hovered */
+  border-color: red;
 }
 
 :host ::ng-deep .p-radiobutton-icon {
@@ -77,3 +72,98 @@ body {
   border-color: red !important;
   color:white;
 }
+
+ 
+:host ::ng-deep .p-togglebutton.p-togglebutton-checked .p-button {
+  background-color: red !important;
+  color: white !important;
+}
+ 
+:host ::ng-deep .custom-style .p-button-label {
+  color: red !important;
+}
+ 
+:host ::ng-deep .custom-style .p-togglebutton {
+  background-color: transparent !important;
+  border-color: red !important;
+  color: red !important;  
+}
+
+:host ::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:after {
+  content: "Oui" !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 10px !important;
+  font-weight: bold;
+  margin: 0px 8px !important;
+  color: red !important;
+  animation: barshine 0.5s 0.1s forwards;
+
+}
+
+:host ::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background-color: transparent!important;
+  box-shadow: 0 0 5px red;
+  outline: none; 
+  width: 60px; 
+}
+
+
+:host ::ng-deep .p-inputswitch .p-inputswitch-slider:after {
+  content: "Non" !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 10px !important;
+  font-weight: bold;
+  margin: 0px 8px !important;
+  color: white !important;
+}
+
+
+:host ::ng-deep .p-inputswitch .p-inputswitch-slider {
+  box-shadow: 0 0 5px gray;
+  outline: none; 
+  width: 60px; 
+}
+
+
+
+.circle-container {
+  position: relative;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #afafaf;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #afafaf;
+}
+
+.increment-button {
+  width: 35px;
+  height: 35px;
+  transform: translate(-40%, -50%);
+  border: none;
+  border-radius: 50%;
+  background-color: #afafaf;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.increment-button:hover {
+  background-color: #e60000 ; 
+}
+

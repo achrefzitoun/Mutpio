@@ -31,12 +31,19 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToggleButtonModule} from "primeng/togglebutton";
 import {SelectButtonModule} from "primeng/selectbutton";
 import { InputTextModule } from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { KnobModule } from 'primeng/knob';
+import { BesoinsComponent } from './Devis/besoins/besoins.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     InformationsComponent,
-    ProfilComponent
+    ProfilComponent,
+    BesoinsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,10 @@ import { InputTextModule } from 'primeng/inputtext';
     SplitterModule,
     FileUploadModule,
     ToggleButtonModule,
-    SelectButtonModule
+    SelectButtonModule,
+    DialogModule,
+    InputSwitchModule,
+    KnobModule
   ],
   providers: [
   { provide: LocationStrategy, useClass: HashLocationStrategy },
