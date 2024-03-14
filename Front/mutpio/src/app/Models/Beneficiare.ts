@@ -16,9 +16,9 @@ export class Beneficiare {
   frontalier!: boolean;
   parraine!: boolean;
   femme!: boolean;
-  regime!: Regime; // Make sure to import Regime enum
-  typeBeneficiare!: TypeBeneficiare; // Make sure to import TypeBeneficiare enum
-  document!: Document[]; // Make sure to import Document class
-  devis!: Devis; // Make sure to import Devis class
+  regime!: Regime;
+  typeBeneficiare!: TypeBeneficiare;
+  document!: Document[];
+  devis!: Devis;
 
 }

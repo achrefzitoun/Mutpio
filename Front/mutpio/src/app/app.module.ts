@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { InformationsComponent } from './Devis/informations/informations.component';
-import {RouterOutlet} from "@angular/router";
-
+import { InformationsComponent } from './Adhesion/informations/informations.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { StepsModule } from 'primeng/steps';
 import { ToastModule } from 'primeng/toast';
@@ -14,7 +11,6 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { SplitterModule } from 'primeng/splitter';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ProfilComponent } from './Devis/profil/profil.component';
-
 import { RadioButtonModule } from 'primeng/radiobutton';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
@@ -31,12 +27,22 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToggleButtonModule} from "primeng/togglebutton";
 import {SelectButtonModule} from "primeng/selectbutton";
 import { InputTextModule } from 'primeng/inputtext';
+import { FieldsetModule } from 'primeng/fieldset';
+import { CardModule } from 'primeng/card';
+import { AvatarModule } from 'primeng/avatar';
+import { MondatdetailsComponent } from './Adhesion/mondatdetails/mondatdetails.component';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { PaiementComponent } from './Adhesion/paiement/paiement.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { BlockUIModule } from 'primeng/blockui';
+import { PanelModule } from 'primeng/panel';
 
 @NgModule({
   declarations: [
     AppComponent,
     InformationsComponent,
-    ProfilComponent
+    ProfilComponent,  
+    MondatdetailsComponent, PaiementComponent  
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,8 @@ import { InputTextModule } from 'primeng/inputtext';
     BrowserModule,
     BrowserAnimationsModule,
     InputTextModule,
+    BlockUIModule,
+    PanelModule,
     CheckboxModule ,
     RadioButtonModule,
     CommonModule,
@@ -51,12 +59,13 @@ import { InputTextModule } from 'primeng/inputtext';
     AutoCompleteModule,
     CalendarModule,
     ChipsModule,
+    InputSwitchModule,
     DropdownModule,
     InputMaskModule,
     InputNumberModule,
     CascadeSelectModule,
     MultiSelectModule,
-    InputTextareaModule,
+    InputTextareaModule,KeyFilterModule,
     InputTextModule,
     StepsModule,
     ToastModule,
@@ -66,7 +75,11 @@ import { InputTextModule } from 'primeng/inputtext';
     SplitterModule,
     FileUploadModule,
     ToggleButtonModule,
-    SelectButtonModule
+    SelectButtonModule,
+    FieldsetModule,
+    CardModule,
+    AvatarModule,
+    
   ],
   providers: [
   { provide: LocationStrategy, useClass: HashLocationStrategy },

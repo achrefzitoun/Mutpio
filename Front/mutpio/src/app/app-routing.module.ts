@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
-import { InformationsComponent } from "./Devis/informations/informations.component";
+import { InformationsComponent } from "./Adhesion/informations/informations.component";
 import {ProfilComponent} from "./Devis/profil/profil.component";
+import { MondatdetailsComponent } from './Adhesion/mondatdetails/mondatdetails.component';
+import { PaiementComponent } from './Adhesion/paiement/paiement.component';
 
 
 const routes: Routes = [
-  { path: 'info', component: InformationsComponent },
+  {path: 'info', component: InformationsComponent },
+  {path: 'mondat', component: MondatdetailsComponent },
+  {path: 'paiement', component: PaiementComponent },
+
   {path:'profil', component:ProfilComponent},
 
 ];

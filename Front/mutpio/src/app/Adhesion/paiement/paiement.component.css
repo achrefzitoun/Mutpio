@@ -1,0 +1,48 @@
+
+.p-inputtext {
+    outline-color : #DC0029;
+}
+
+.p-inputtext:enabled:focus {
+    border-color: #DC0029 !important;
+    box-shadow: 0 0 0 0.04rem #DC0029 !important;
+
+}
+
+
+
+.p-inputtext:hover {
+    box-shadow: 0 0 0 0.04rem #DC0029 !important;
+}
+
+label {
+    color: #DC0029;
+    font: bold;
+}
+
+
+
+:host ::ng-deep .p-card{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+:host ::ng-deep .p-fieldset{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.background{
+    background-color: #f5f5f5;
+}
+
+.bold-and-centered {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+}
+
+.left-align {
+  justify-content: right;
+}

@@ -1,0 +1,22 @@
+:host ::ng-deep .p-card{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+:host ::ng-deep .p-fieldset{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.background{
+    background-color: #f5f5f5;
+}
+
+label {
+    color: #DC0029;
+    font: bold;
+}
+
+.ui-fileupload-buttonbar button:nth-child(2){
+    display:none;
+  }
