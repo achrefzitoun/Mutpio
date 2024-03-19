@@ -33,8 +33,9 @@ import {SelectButtonModule} from "primeng/selectbutton";
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { KnobModule } from 'primeng/knob';
 import { BesoinsComponent } from './Devis/besoins/besoins.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -76,7 +77,7 @@ import { BesoinsComponent } from './Devis/besoins/besoins.component';
     SelectButtonModule,
     DialogModule,
     InputSwitchModule,
-    KnobModule
+    HttpClientModule
   ],
   providers: [
   { provide: LocationStrategy, useClass: HashLocationStrategy },

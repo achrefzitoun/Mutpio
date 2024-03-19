@@ -1,5 +1,6 @@
 package com.mutpio.pfe.Entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -21,7 +22,13 @@ public class Devis implements Serializable {
 
     String numDevis, besoinSpecifique;
 
-    LocalDate dateAdhesion, dateDevis, dateExpiration;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    LocalDate dateAdhesion;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    LocalDate dateDevis;
+
+    LocalDate dateExpiration;
 
     Double valDevis;
 

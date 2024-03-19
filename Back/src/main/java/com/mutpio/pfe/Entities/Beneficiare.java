@@ -1,6 +1,7 @@
 package com.mutpio.pfe.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,12 +23,15 @@ public class Beneficiare implements Serializable {
 
     String numBeneficiare, nom, prenom, noSs, cleSs, situation, nomJeuneFille;
 
-    LocalDate dateNaissance, dateClotureComptable;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    LocalDate dateNaissance;
+
+    LocalDate dateClotureComptable;
 
     Boolean frontalier, parraine, femme;
 
     @Enumerated(EnumType.STRING)
-    Regime regime;
+    Regime regime = Regime.GENERALE;
 
     @Enumerated(EnumType.STRING)
     TypeBeneficiare typeBeneficiare;

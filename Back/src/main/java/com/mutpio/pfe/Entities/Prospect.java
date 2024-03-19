@@ -1,5 +1,6 @@
 package com.mutpio.pfe.Entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -21,10 +22,11 @@ public class Prospect implements Serializable {
 
     String nom, prenom;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate dateNaissance;
 
     @Enumerated(EnumType.STRING)
-    Regime regime;
+    Regime regime = Regime.GENERALE;
 
     Boolean PPE;
 

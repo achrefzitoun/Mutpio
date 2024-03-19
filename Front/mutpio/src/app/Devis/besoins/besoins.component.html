@@ -1,5 +1,92 @@
 <div class="col-12">
     <div class="card" style="margin:200px">
-        <h2 class="text-center" style="color: #e60000 ; margin-bottom: 80px;">Estimez l'intensité de vos besoins de santé !</h2>
+        <h2 class="text-center" style="color: #e60000 ; margin-bottom: 80px;">Estimez l'intensité de vos besoins de
+            santé !</h2>
+        <div class="card">
+            <div class="p-fluid grid grid-responsive" style="justify-content: center;">
+                <div class="field col-4 md:col-5">
+                    <div class="field" style="display: flex; align-items: center;">
+                        <img src="assets/images/Medicaments.PNG" alt="Image"
+                            style="width: 26px; height: 26px; margin-right: 5px;">
+                        <label class="font-bold block mb-2" style="color: #e60000; margin-top: 10px ;"> SOINS
+                            COURANTS</label>
+                    </div>
+                    <p-selectButton [options]="Besoin1" [(ngModel)]="value1" [multiple]="false" optionLabel="name"
+                        optionValue="value1"></p-selectButton>
+                    <p style="font-size: 10px;">Soins Médicaux, pharmacie</p>
+                </div>
+                <div class="field col-4 md:col-5">
+                    <div class="field" style="display: flex; align-items: center;">
+                        <img src="assets/images/PICTO-HOPI.png" alt="Image"
+                            style="width: 25px; height: 25px; margin-right: 5px;">
+                        <label class="font-bold block mb-2" style="color: #e60000; margin-top: 10px ;">
+                            HOSPITALISATION</label>
+                    </div>
+                    <p-selectButton [options]="Besoin2" [(ngModel)]="value2" [multiple]="false" optionLabel="name"
+                        optionValue="value2"></p-selectButton>
+                    <p style="font-size: 10px;">Hospitalisation médicale ou chirurgicale, chambre particulière... </p>
+
+                </div>
+            </div>
+
+            <div class="p-fluid grid grid-responsive" style="justify-content: center;">
+                <div class="field col-4 md:col-5">
+                    <div class="field" style="display: flex; align-items: center;">
+                        <img src="assets/images/PICTO-OPTI.png" alt="Image"
+                            style="width: 26px; height: 26px; margin-right: 5px;">
+                        <label class="font-bold block mb-2" style="color: #e60000; margin-top: 10px ;"> OPTIQUE</label>
+                    </div>
+                    <p-selectButton [options]="Besoin3" [(ngModel)]="value3" [multiple]="false" optionLabel="name"
+                        optionValue="value3"></p-selectButton>
+                    <p style="font-size: 10px;">Monture, verres, lentilles, chirurgie réfractive... </p>
+                </div>
+                <div class="field col-4 md:col-5">
+                    <div class="field" style="display: flex; align-items: center;">
+                        <img src="assets/images/PICTO-DENT.png" alt="Image"
+                            style="width: 26px; height: 26px; margin-right: 5px;">
+                        <label class="font-bold block mb-2"
+                            style="color: #e60000; margin-top: 10px ; margin-right: 10px;"> DENTAIRE</label>
+                        <img src="assets/images/PICTO-AUDIO.png" alt="Image"
+                            style="width: 26px; height: 26px; margin-right: 5px;">
+                        <label class="font-bold block mb-2" style="color: #e60000; margin-top: 10px ;"> AUDIO</label>
+                    </div>
+                    <p-selectButton [options]="Besoin4" [(ngModel)]="value4" [multiple]="false" optionLabel="name"
+                        optionValue="value4"></p-selectButton>
+
+                    <p style="font-size: 10px;">Soins dentaires, prothèse, orthodontie, implant. </p>
+
+                </div>
+            </div>
+
+            <div class="p-fluid grid grid-responsive" style="justify-content: center;">
+                <div class="field col-4 md:col-5">
+                    <div class="field" style="display: flex; align-items: center;">
+                        <img src="assets/images/Confort.PNG" alt="Image"
+                            style="width: 26px; height: 26px; margin-right: 5px;">
+                        <label class="font-bold block mb-2" style="color: #e60000; margin-top: 10px ;"> CONFORT</label>
+                    </div>
+                    <p-selectButton [options]="Besoin5" [(ngModel)]="value5" [multiple]="false" optionLabel="name"
+                        optionValue="value5"></p-selectButton>
+                    <p style="font-size: 10px;">Thérapie complémentaire, prévention </p>
+                </div>
+
+            </div>
+
+            <div class="p-fluid grid grid-responsive" style="justify-content: center; margin-top: 40px ;">
+                <span class="p-float-label">
+                    <textarea id="float-input" rows="8" cols="100" pInputTextarea></textarea>
+                    <label for="float-input">Demandes spécifiques </label>
+                </span>
+            </div>
+
+            <div style="text-align: right; margin-top: 40px;">
+                <p-button icon="pi pi-times" severity="secondary" label="Annuler" size="small" [ngStyle]="{'margin-right': '5px'}"></p-button>
+                <p-button icon="pi pi-check" label="Valider&Suivant" severity="danger" [loading]="loading"
+                    (onClick)="load()" size="small"></p-button>
+            </div>
+        </div>
+
+        
+
     </div>
 </div>
