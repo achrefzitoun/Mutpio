@@ -46,3 +46,8 @@ label {
 .left-align {
   justify-content: right;
 }
+
+
+.white-background {
+    background-color: white;
+}

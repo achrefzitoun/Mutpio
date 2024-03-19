@@ -5,12 +5,14 @@ import { InformationsComponent } from "./Adhesion/informations/informations.comp
 import {ProfilComponent} from "./Devis/profil/profil.component";
 import { MondatdetailsComponent } from './Adhesion/mondatdetails/mondatdetails.component';
 import { PaiementComponent } from './Adhesion/paiement/paiement.component';
+import { SignatureComponent } from './Adhesion/signature/signature.component';
 
 
 const routes: Routes = [
   {path: 'info', component: InformationsComponent },
   {path: 'mondat', component: MondatdetailsComponent },
   {path: 'paiement', component: PaiementComponent },
+  {path: 'signature', component: SignatureComponent  },
 
   {path:'profil', component:ProfilComponent},
 

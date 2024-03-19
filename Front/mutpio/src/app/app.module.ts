@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InformationsComponent } from './Adhesion/informations/informations.component';
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {DatePipe, HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { StepsModule } from 'primeng/steps';
 import { ToastModule } from 'primeng/toast';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
@@ -36,13 +36,15 @@ import { PaiementComponent } from './Adhesion/paiement/paiement.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { BlockUIModule } from 'primeng/blockui';
 import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+import { SignatureComponent } from './Adhesion/signature/signature.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InformationsComponent,
     ProfilComponent,  
-    MondatdetailsComponent, PaiementComponent  
+    MondatdetailsComponent, PaiementComponent, SignatureComponent  
   ],
   imports: [
     BrowserModule,
@@ -79,10 +81,10 @@ import { PanelModule } from 'primeng/panel';
     FieldsetModule,
     CardModule,
     AvatarModule,
-    
+    TableModule
   ],
   providers: [
-  { provide: LocationStrategy, useClass: HashLocationStrategy },
+  { provide: LocationStrategy, useClass: HashLocationStrategy },DatePipe
 ],
   bootstrap: [AppComponent]
 })

@@ -1,23 +1,27 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { MenuItem, MessageService } from 'primeng/api';
-import { AdressePostale } from 'src/app/Models/AdressePostale';
-import { Beneficiare } from 'src/app/Models/Beneficiare';
+import { Component, OnInit } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http';
+import { MenuItem } from 'primeng/api';
 import { Devis } from 'src/app/Models/Devis';
+import { Beneficiare } from 'src/app/Models/Beneficiare';
 import { Prospect } from 'src/app/Models/Prospect';
-import { Regime } from 'src/app/Models/Regime';
 import { TypeBeneficiare } from 'src/app/Models/TypeBeneficiare';
-import { DatePipe } from '@angular/common';
+import { Regime } from 'src/app/Models/Regime';
 import { Contact } from 'src/app/Models/Contact';
+import { AdressePostale } from 'src/app/Models/AdressePostale';
 import { Formule } from 'src/app/Models/Formule';
+import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-paiement',
-  templateUrl: './paiement.component.html',
-  styleUrls: ['./paiement.component.css'],
-  providers: [MessageService]
+  selector: 'app-signature',
+  templateUrl: './signature.component.html',
+  styleUrls: ['./signature.component.css']
 })
-export class PaiementComponent implements OnInit {
+export class SignatureComponent implements OnInit {
+
+  constructor(private http: HttpClient, private datePipe: DatePipe) {
+
+  }
   items!: MenuItem[];
   activeIndex: number = 1;
   loading: boolean = false;
@@ -31,10 +35,11 @@ export class PaiementComponent implements OnInit {
   adresse: AdressePostale = new AdressePostale();
   contact: Contact = new Contact();
   formule: Formule = new Formule();
-  constructor(private messageService: MessageService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit() {
+
     this.adresse.ville = "Ben Arous";
+    this.adresse.codePostale = 2013;
     this.adresse.adressePostale = "06 Zouheir Safi";
 
     this.contact.numTel = "+33 26 977 557";
@@ -56,7 +61,7 @@ export class PaiementComponent implements OnInit {
       prenom: 'Zitoun',
       noSs: '59632556659596',
       cleSs: '19',
-      situation: '',
+      situation: 'Célibataire',
       nomJeuneFille: '',
       dateNaissance: new Date('2000-01-01'),
       dateClotureComptable: new Date('2022-01-01'),
@@ -69,48 +74,7 @@ export class PaiementComponent implements OnInit {
       devis: this.devis
     };
 
-
-    this.items = [
-      {
-        label: 'Information',
-        routerLink: '/info'
-      },
-      {
-        label: 'Mandat',
-        routerLink: '/mondat'
-      },
-      {
-        label: 'Paiement',
-        routerLink: '/paiement'
-      },
-      {
-        label: 'Signature',
-        routerLink: '/signature'
-      },
-      {
-        label: 'Confirmation',
-        routerLink: '/confirmation'
-      }
-    ];
-
-    setTimeout(() => {
-      this.blockedPanel = true;
-    }, 2);
-
-
   }
-
-  onActiveIndexChange(event: number) {
-    this.activeIndex = event;
-  }
-
-  load() {
-    this.loading = true;
-  }
-
-
-  
-
 
 
 }

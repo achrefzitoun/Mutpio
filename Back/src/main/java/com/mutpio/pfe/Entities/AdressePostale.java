@@ -21,8 +21,9 @@ public class AdressePostale implements Serializable {
 
     String ville;
 
+    Integer codePostale;
+
     @OneToOne
     Prospect prospect;
-
 
 }

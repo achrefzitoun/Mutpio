@@ -1,4 +1,4 @@
-<!--div class="background">
+<div class="background">
     <br><br>
     <br><br>
     <br><br>
@@ -18,12 +18,58 @@
             </div>
         </ng-template>
         <div class="col-12">
-            <div class="p-fluid p-formgrid grid">
-                <div class="card">
+            <div class="field">
 
-                   
+                <p-blockUI [target]="pnl" [blocked]="blockedPanel">
+                    <i class="pi pi-lock" style="font-size: 3rem"></i>
+                </p-blockUI>
 
-                </div>
+                <p-panel #pnl header="NOUS VOUS SOUHAITONS LA BIENVENUE AUX MUTUELLES DU PAYS-HAUT">
+                    <label style="font-weight: bolder;">Vos informations personnelles </label>
+
+                    <p-table [value]="customers" styleClass="p-datatable-striped"
+                        [tableStyle]="{'min-width': '50rem', 'margin': '50px'}">
+
+                        <ng-template pTemplate="body">
+                            <tr>
+                                <td>Assuré principal</td>
+                                <td style="font-weight: 400;">{{ beneficiare.nom }} {{ beneficiare.prenom }}</td>
+                            </tr>
+                            <tr class="white-background">
+                                <td>Né le</td>
+                                <td style="font-weight: 400;">{{ beneficiare.dateNaissance | date: 'dd.MM.yyyy' }}</td>
+                            </tr>
+                            <tr>
+                                <td>Régime social</td>
+                                <td style="font-weight: 400;">{{ beneficiare.regime }}</td>
+                            </tr>
+                            <tr class="white-background">
+                                <td>Num. Secu.</td>
+                                <td style="font-weight: 400;">{{ beneficiare.noSs }}</td>
+                            </tr>
+                            <tr>
+                                <td>Date d'adhésion</td>
+                                <td style="font-weight: 400;">{{ devis.dateAdhesion | date: 'dd.MM.yyyy' }}</td>
+                            </tr>
+                            <tr class="white-background">
+                                <td>Adresse</td>
+                                <td style="font-weight: 400;">{{ adresse.adressePostale }}, {{ adresse.ville }}  </td>
+                            </tr>
+                            <tr>
+                                <td>Num. de tél.</td>
+                                <td style="font-weight: 400;">{{ contact.numTel }}</td>
+                            </tr>
+                            <tr class="white-background">
+                                <td>Email</td>
+                                <td style="font-weight: 400;">{{ contact.email }}</td>
+                            </tr>
+                            <tr>
+                                <td>Garantie</td>
+                                <td style="font-weight: 400;">{{ formule.formuleLabel }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-panel>
             </div>
         </div>
 
@@ -40,21 +86,10 @@
                     <p-button icon="pi pi-chevron-left" label="Retour" severity="secondary"></p-button>
                 </div>
                 <div class="field col-12 md:col-2">
-                    <p-button label="Suivant" [loading]="loading" (onClick)="load()" severity="danger"></p-button>
+                    <p-button label="Suivant" [loading]="loading" (onClick)="load()" severity="danger" [disabled]="blockedPanel"></p-button>
                 </div>
             </div>
         </div>
     </p-card>
     <br><br>
-</div-->
-<div class="card">
-
-    <button type="button" pButton pRipple label="Block" (click)="blockedPanel=true" hidden></button>
-    <button type="button" pButton pRipple label="Unblock" (click)="blockedPanel=false" hidden></button>
-    <p-blockUI [target]="pnl" [blocked]="blockedPanel">
-        <i class="pi pi-lock" style="font-size: 3rem"></i>
-    </p-blockUI>
-    <p-panel #pnl  header="Nous vous souhaitons la bienvenue aux mutuelles du pays-haut" styleClass="mt-4">
-      
-    </p-panel>
 </div>
