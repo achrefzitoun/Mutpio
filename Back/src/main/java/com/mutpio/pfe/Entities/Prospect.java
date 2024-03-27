@@ -1,6 +1,7 @@
 package com.mutpio.pfe.Entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -31,15 +32,17 @@ public class Prospect implements Serializable {
     boolean PPE;
 
     @OneToMany(mappedBy = "prospect")
+    @JsonIgnore
     Set<Devis> devis;
 
     @OneToOne(mappedBy = "prospect" )
+    @JsonIgnore
     Compte compte;
 
     @OneToOne(mappedBy = "prospect")
     Contact contact;
 
     @OneToOne(mappedBy = "prospect")
-    AdressePostale adressePostale;
+    AdressePostale adressePostale ;
 
 }

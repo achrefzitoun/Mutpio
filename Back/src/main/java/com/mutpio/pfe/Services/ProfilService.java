@@ -27,36 +27,7 @@ public class ProfilService implements IProfilService {
     private final IContratResiliationRepository contratResiliationRepository;
 
 
-    public String generateRandomNumber() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(1000000);
-        return String.format("%06d", randomNumber);
-    }
 
-    @Override
-    public void addProspectAndBeneficiaire(Prospect prospect, String email, LocalDate dateAdhesion) {
-        prospectRepository.save(prospect);
-
-        Contact contact = new Contact();
-        contact.setEmail(email);
-        contact.setProspect(prospect);
-        contactRepository.save(contact);
-
-        Devis devis = new Devis();
-        devis.setDateDevis(LocalDate.now());
-        devis.setDateAdhesion(dateAdhesion);
-        devis.setNumDevis(generateRandomNumber());
-        devis.setProspect(prospect);
-        devisRepository.save(devis);
-
-        Beneficiare beneficiare = new Beneficiare();
-        beneficiare.setNom(prospect.getNom());
-        beneficiare.setPrenom(prospect.getPrenom());
-        beneficiare.setDateNaissance(prospect.getDateNaissance());
-        beneficiare.setTypeBeneficiare(TypeBeneficiare.SOUSCRIPTEUR);
-        beneficiare.setDevis(devis);
-        beneficiareRepository.save(beneficiare);
-    }
 
     //en java17 !!
     @Override
@@ -67,7 +38,6 @@ public class ProfilService implements IProfilService {
             System.out.println("Début de l'ajout des bénéficiaires et prospects.");
 
             devis.setDateDevis(LocalDate.now());
-            devis.setNumDevis(generateRandomNumber());
             devis.setNumDevis(generateRandomNumber());
             devisRepository.save(devis);
             System.out.println("Devis enregistré avec succès.");
@@ -97,59 +67,55 @@ public class ProfilService implements IProfilService {
         }
     }
 
-    //Juste Prospect
+
+
+    //Juste Prospect + ContratResiliation
     @Override
-    public void ajouterDevisAvecProspectEtContact(Devis devis) {
+    public Devis ajouterDevisAvecProspectEtContact(Devis devis) {
         
         devis.setDateDevis(LocalDate.now());
         devis.setNumDevis(generateRandomNumber());
+        devis.setEtat(Etat.EN_COURS_DE_TRAITEMENT);
 
         Prospect prospect = devis.getProspect();
         if (prospect != null) {
             devis.setProspect(prospect);
+
+            Contact contact = prospect.getContact();
+
+            if (contact != null) {
+                contact.setProspect(prospect);
+                contactRepository.save(contact);
+            }
+            prospectRepository.save(prospect);
+        }
+        ContratResiliation contrat = devis.getContratResiliation();
+
+        if(contrat!=null){
+            contrat.setDevis(devis);
+            contratResiliationRepository.save(contrat);
         }
 
-        devisRepository.save(devis);
-        System.out.println("Devis enregistré avec succès.");
-
-    }
-
-    //C'est Bon !
-    @Override
-    public Prospect addProsp(Prospect prospect) {
-        prospect.setAdressePostale(null);
-        prospect.setCompte(null);
-
-        Contact contact = prospect.getContact();
-
-        if (contact != null) {
-            contact.setProspect(prospect);
-            contactRepository.save(contact);
+        if (devis.getBeneficiares() != null && !devis.getBeneficiares().isEmpty()) {
+            devis.getBeneficiares().forEach(beneficiare -> {
+                beneficiare.setDevis(devis);
+                beneficiareRepository.save(beneficiare);
+            });
+            System.out.println("Bénéficiaires enregistrés avec succès.");
         }
 
-        return prospect;
+        return devisRepository.save(devis);
+
+
     }
 
-    @Override
-    public Beneficiare addConjoint(Beneficiare conjoint) {
 
-        conjoint.setTypeBeneficiare(TypeBeneficiare.CONJOINT);
-        return beneficiareRepository.save(conjoint);
+    public String generateRandomNumber() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(1000000);
+        return String.format("%06d", randomNumber);
     }
 
-    @Override
-    public List<Beneficiare> addEnfants(List<Beneficiare> enfants) {
-        for (Beneficiare b : enfants) {
-            b.setTypeBeneficiare(TypeBeneficiare.ENFANT);
-            beneficiareRepository.save(b);
-        }
-        return enfants;
-    }
-
-    @Override
-    public ContratResiliation addContratResiliation(ContratResiliation contratResiliation) {
-        return null;
-    }
 
 
 }

@@ -2,6 +2,7 @@ package com.mutpio.pfe.Entities;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -39,6 +40,7 @@ public class Beneficiare implements Serializable {
     @OneToMany(mappedBy = "beneficiare")
     Set<Document> document;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     Devis devis;
 }

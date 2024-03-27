@@ -1,6 +1,7 @@
 package com.mutpio.pfe.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -20,9 +21,10 @@ public class ContratResiliation implements Serializable {
 
     String nom, prenom, numContrat, organisme;
 
-    Boolean etat;
+    Boolean etat = false;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+            @JsonIgnore
     Devis devis;
 
 }

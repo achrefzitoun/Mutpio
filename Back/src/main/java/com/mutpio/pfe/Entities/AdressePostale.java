@@ -1,5 +1,6 @@
 package com.mutpio.pfe.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,6 +23,7 @@ public class AdressePostale implements Serializable {
     String ville;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     Prospect prospect;
 
 
