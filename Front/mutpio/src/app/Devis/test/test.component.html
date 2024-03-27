@@ -1,0 +1,101 @@
+<div class="col-12">
+    <div class="card" style="margin:200px">
+        <h2 class="text-center" style="color: #e60000 ; margin-bottom: 80px;">Faisons connaissance !</h2>
+
+        <div class="p-fluid p-formgrid grid" style="margin-bottom: 40px;">
+            <div class="field col-12 md:col-4">
+                <label class="font-bold block mb-2" style="color: #e60000">Prénom*</label>
+                <input pInputText id="firstname" type="text" [(ngModel)]="Prosp.prenom" />
+            </div>
+            <div class="field col-12 md:col-4">
+                <label class="font-bold block mb-2" style="color: #e60000">Nom*</label>
+                <input pInputText id="lastname" type="text" [(ngModel)]="Prosp.nom" />
+            </div>
+
+            <div class="field col-12 md:col-3">
+                <label class="font-bold block mb-2" style="color: #e60000"> Date de naissance* </label>
+                <p-calendar dateFormat="dd.mm.yy" [(ngModel)]="naissance"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-3">
+                <label class="font-bold block mb-2" style="color: #e60000"> Date d'adhésion* </label>
+                <p-calendar dateFormat="dd.mm.yy" 
+                 [(ngModel)]="adhesion"></p-calendar>
+              </div>
+
+            <div class="field col-12 md:col-4">
+                <label class="font-bold block mb-2" style="color: #e60000">Email*</label>
+                <input pInputText id="address" rows="4" [(ngModel)]="contact.email" />
+            </div>
+
+        </div>
+
+
+        <div style=" margin-bottom: 80px;">
+            <label class="font-bold block mb-2" style="color: #e60000 ">Votre régime </label> <br>
+            <div style="display: flex; justify-content: center; ">
+      
+              <button pRipple type="button" class="custom-button-style p-button-text"
+                [class]="selectedRegimeProspect === 'GENERALE' ? 'selected' : 'unselected'"
+                (click)="selectRegimeProspect('GENERALE')"
+                [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}">
+                <div style="display: flex; justify-content: space-between; align-items: center; ">
+                  <i class="pi pi-shield" style="margin-left: 55px;"></i>
+                  <div style="text-align: left; margin-right: 80px;">
+                    <strong style="font-size: 16px;">RÉGIME GÉNÉRAL</strong>
+                  </div>
+                </div>
+              </button>
+      
+              <button pRipple type="button" class="custom-button-style p-button-text"
+                [class]="selectedRegimeProspect === 'TNS' ? 'selected' : 'unselected'" (click)="selectRegimeProspect('TNS')"
+                [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px' }">
+      
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <i class="pi pi-shield" style="margin-left: 55px;"></i>
+                  <div style="text-align: left; margin-right: 60px;">
+                    <strong style="font-size: 18px;"> TNS</strong> <br>
+                    <div style="font-size: 11px;"> TRAVAILLEUR NON SALARIÉ </div>
+                  </div>
+                </div>
+              </button>
+      
+              <button pRipple type="button" class="custom-button-style p-button-text"
+                [class]="selectedRegimeProspect === 'ALSACE_MOSELLE' ? 'selected' : 'unselected'"
+                (click)="selectRegimeProspect('ALSACE_MOSELLE')"
+                [ngStyle]="{'margin-right': '10px', 'width': '350px' , 'height': '70px'}">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <i class="pi pi-shield" style="margin-left: 55px;"></i>
+                  <div style="text-align: left; margin-right: 90px;">
+                    <strong style="font-size: 18px;"> RÉGIME LOCAL </strong> <br>
+                    <div style="font-size: 11px;"> ALSACE MOSELLE </div>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <table>
+           
+            <tr>
+              <td style="width: 80%;">
+                <div style="margin-bottom: 80px;">
+                  <label class="font-bold mb-2" style="color: #e60000; max-width: 100%;">Êtes-vous, vous-même ou l'un des
+                    membres directs de votre famille,une personne politiquement exposée (PPE) ?</label>
+                  <p style="font-size: 11px;">*Sont considérées comme PPE les personnes qui exercent, ou ont cessé d'exercer
+                    depuis moins d'un an, des fonctions politiques, juridictionnelles ou administratives pour le compte de la
+                    France, d'un État étranger ou d'une organisation internationale, ainsi que leur proche.</p>
+      
+                </div>
+              </td>
+              <td style="width: 20%;">
+                <div style="margin-bottom: 80px;">
+                  <p-inputSwitch (onChange)="togglePPE($event)"></p-inputSwitch>
+                </div>
+              </td>
+            </tr>
+            </table>
+
+        <p-button icon="pi pi-check" label="Valider&Suivant" severity="danger" (onClick)="onSubmit() "
+            size="small"></p-button>
+    </div>
+</div>

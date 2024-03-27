@@ -22,7 +22,7 @@ import { ProfilService } from 'src/app/Services/profil.service';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor(private serv : ProfilService) { }
+  constructor(private serv: ProfilService) { }
 
 
   valRadio: string = '';
@@ -39,7 +39,7 @@ export class ProfilComponent implements OnInit {
     idProspect: 0,
     nom: "",
     prenom: "",
-    dateNaissance: new Date(),
+    dateNaissance: " ",
     regime: Regime.GENERALE,
     PPE: false,
     devis: [],
@@ -49,7 +49,12 @@ export class ProfilComponent implements OnInit {
   }
 
 
-  contact!: Contact
+  contact: Contact = {
+    idContact: 0,
+    email: "",
+    numTel: "",
+    prospect: new Prospect
+  }
 
   contrat!: ContratResiliation
 
@@ -57,7 +62,7 @@ export class ProfilComponent implements OnInit {
     idDevis: 0,
     numDevis: "",
     besoinSpecifique: "",
-    dateAdhesion: new Date(),
+    dateAdhesion: "",
     dateDevis: new Date(),
     dateExpiration: new Date(),
     valDevis: 0,
@@ -66,7 +71,7 @@ export class ProfilComponent implements OnInit {
     beneficiares: [],
     signature: new Signature,
     refBancaire: [],
-    prospect: new Prospect,
+    prospect: this.Prosp,
     contratResiliation: new ContratResiliation,
     formule: new Formule,
     paiementDetails: new PaiementDetails
@@ -77,18 +82,33 @@ export class ProfilComponent implements OnInit {
 
   enfantsRegimes: string[] = [];
 
-  conjointBen!: Beneficiare;
+
+  conjointBen: Beneficiare = {
+    idBeneficiare: 0,
+    numBeneficiare: "",
+    nom: "",
+    prenom: "",
+    noSs: "",
+    cleSs: "",
+    situation: "",
+    nomJeuneFille: "",
+    dateNaissance: new Date(),
+    dateClotureComptable: new Date(),
+    frontalier: false,
+    parraine: false,
+    femme: false,
+    regime: Regime.GENERALE,
+    typeBeneficiare: TypeBeneficiare.CONJOINT,
+    document: [],
+    devis: new Devis
+  };
 
   Enfants: Beneficiare[] = [];
   datesNaissanceEnfants: Date[] = [];
 
   souscripteur!: Beneficiare;
 
-
   ngOnInit() {
-    this.contrat = new ContratResiliation()
-    this.contact = new Contact()
-
 
   }
 
@@ -96,13 +116,11 @@ export class ProfilComponent implements OnInit {
     this.selectedRegimeProspect = regime;
     console.log(this.selectedRegimeProspect);
 
-
   }
 
   selectRegimeConjoint(regime: string) {
     this.selectedRegimeConjoint = regime;
     console.log(this.selectedRegimeConjoint);
-
   }
 
   selectRegimeEnfant(index: number, regime: string) {
@@ -159,10 +177,12 @@ export class ProfilComponent implements OnInit {
 
   addConjoint() {
     if (this.conjoint) {
+
       this.conjointBen = new Beneficiare();
       this.conjointBen.typeBeneficiare = TypeBeneficiare.CONJOINT;
       this.conjointBen.regime = this.convertirEnRegime(this.selectedRegimeConjoint);
 
+      console.log('Conjoint(e) a été ajouté !');
     }
 
   }
@@ -172,20 +192,18 @@ export class ProfilComponent implements OnInit {
     nouvelEnfant.typeBeneficiare = TypeBeneficiare.ENFANT;
     nouvelEnfant.regime = this.convertirEnRegime(this.enfantsRegimes[this.enfants.length]);
     nouvelEnfant.dateNaissance = this.datesNaissanceEnfants[this.enfants.length];
-
     this.Enfants.push(nouvelEnfant);
     this.datesNaissanceEnfants.push(new Date());
-
 
     console.log('Un nouvel enfant a été ajouté !');
 
   }
 
 
-
   save() {
+
     this.devis.prospect = this.Prosp;
-    this.Prosp.regime = this.convertirEnRegime(this.selectedRegimeProspect);
+    /*this.Prosp.regime = this.convertirEnRegime(this.selectedRegimeProspect);
 
     this.souscripteur = new Beneficiare();
     this.souscripteur.typeBeneficiare = TypeBeneficiare.SOUSCRIPTEUR;
@@ -205,12 +223,75 @@ export class ProfilComponent implements OnInit {
       for (let enfant of this.Enfants) {
         this.devis.beneficiares.push(enfant);
       }
-    }
-    this.serv.addProfil(this.devis);
-
-
+    }*/
+    this.serv.addProfil(this.devis).subscribe(() => {
+      console.log('Devis ajouté avec succès');
+      // Réinitialiser le formulaire ou effectuer toute autre action nécessaire après l'ajout du devis
+    },
+      error => {
+        console.error('Erreur lors de l\'ajout du devis:', error);
+        // Gérer l'erreur, afficher un message d'erreur à l'utilisateur, etc.
+      }
+    );
 
   }
 
+
+  onDateNaissanceChange(selectedDate: Date) {
+    // Obtenir l'année, le mois et le jour de la date sélectionnée
+    const year = selectedDate.getFullYear();
+    const month = (selectedDate.getMonth() + 1).toString().padStart(2, '0'); // Les mois commencent à 0, donc on ajoute 1
+    const day = selectedDate.getDate().toString().padStart(2, '0');
+
+    // Formater la date au format "yyyy-MM-dd"
+    const dateFormatee = `${year}-${month}-${day}`;
+    // Afficher la date formatée dans la console
+    console.log(dateFormatee);
+
+    //this.Prosp.dateNaissance = dateFormatee;
+  
+  }
+
+
+  onSubmit() {
+    console.log(this.Prosp.nom);
+    console.log(this.Prosp.prenom);
+    console.log(this.Prosp.dateNaissance);
+    console.log(this.devis.dateAdhesion);
+    console.log(this.Prosp.contact.email)
+
+
+    /*this.Prosp.regime = this.convertirEnRegime(this.selectedRegimeProspect);
+    console.log(this.Prosp.regime);
+
+    // Sauvegarder le prospect avant de l'associer au devis
+    this.serv.addProsp(this.Prosp).subscribe(
+      prospect => {
+        console.log('Prospect ajouté avec succès:', prospect);
+
+        // Associer le prospect sauvegardé au devis
+        this.devis.prospect = prospect;
+
+        // Sauvegarder le devis avec le prospect associé
+        this.serv.addDevis(this.devis).subscribe(
+          response => {
+            console.log('Devis ajouté avec succès:', response);
+          },
+          error => {
+            console.error('Erreur lors de l\'ajout du devis:', error);
+          }
+        );
+      },
+      error => {
+        console.error('Erreur lors de l\'ajout du prospect:', error);
+      }
+    );*/
+  }
+
+  
+
+  
+
+  
 
 }

@@ -11,7 +11,7 @@ export class Devis {
   idDevis!: number;
   numDevis!: string;
   besoinSpecifique!: string;
-  dateAdhesion!: Date;
+  dateAdhesion!: string;
   dateDevis!: Date;
   dateExpiration!: Date;
   valDevis!: number;

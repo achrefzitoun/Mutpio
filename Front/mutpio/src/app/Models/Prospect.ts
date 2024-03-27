@@ -8,7 +8,7 @@ export class Prospect {
   idProspect!: number;
   nom!: string;
   prenom!: string;
-  dateNaissance!: Date;
+  dateNaissance!: string;
   regime!: Regime;
   PPE!: boolean;
   devis!: Devis[];

@@ -13,15 +13,17 @@
       </div>
       <div class="field col-12 md:col-4">
         <label class="font-bold block mb-2" style="color: #e60000">Email*</label>
-        <input pInputText id="address" rows="4"  [(ngModel)]="contact.email"/>
+        <input pInputText id="address" rows="4"  [(ngModel)]="Prosp.contact.email"/>
       </div>
       <div class="field col-12 md:col-3">
         <label class="font-bold block mb-2" style="color: #e60000"> Date de naissance* </label>
-        <p-calendar dateFormat="dd.mm.yy" [(ngModel)]="Prosp.dateNaissance"></p-calendar>
+        <p-calendar dateFormat="dd.mm.yy"  (ngModelChange)="onDateNaissanceChange($event)" 
+        [(ngModel)]="Prosp.dateNaissance"></p-calendar>
       </div>
       <div class="field col-12 md:col-3">
         <label class="font-bold block mb-2" style="color: #e60000"> Date d'adhésion* </label>
-        <p-calendar dateFormat="dd.mm.yy" [(ngModel)]="devis.dateAdhesion"></p-calendar>
+        <p-calendar dateFormat="dd.mm.yy" (ngModelChange)="onDateNaissanceChange($event)" 
+         [(ngModel)]="devis.dateAdhesion"></p-calendar>
       </div>
     </div>
 
@@ -325,7 +327,7 @@
     <p style="color: #afafaf ;">[*] champs obligatoires</p>
     <p-button icon="pi pi-times" severity="secondary" label="Annuler" size="small" [ngStyle]="{'margin-right': '5px'}">
     </p-button>
-    <p-button icon="pi pi-check" label="Valider&Suivant" severity="danger" [loading]="loading" (onClick)="load() ; save() "
+    <p-button icon="pi pi-check" label="Valider&Suivant" severity="danger" [loading]="loading" (onClick)="onSubmit() "
       size="small"></p-button>
     <p-dialog header="IMPORTANT" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
       [resizable]="false">

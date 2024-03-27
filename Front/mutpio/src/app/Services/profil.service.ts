@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Devis } from '../Models/Devis';
+import { Observable } from 'rxjs';
+import { Prospect } from '../Models/Prospect';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +11,23 @@ import { Devis } from '../Models/Devis';
 export class ProfilService {
 
   constructor(private http: HttpClient) { }
-  private apiUrl = 'http://localhost:8080/mutpio/profil';
-  
-  addProfil(devis:Devis){
-     this.http.post(`${this.apiUrl}/add`, devis);
+
+  addProfil(devis: Devis): Observable<any> {
+    return this.http.post("http://localhost:8080/mutpio/profil/add", devis);
   }
+
+  addDevis(devis: Devis, adhesion : string): Observable<any> {
+    return this.http.post('http://localhost:8080/mutpio/profil/devis?naissance=' + adhesion, devis);
+  }
+
+
+  addProsp(prospect: Prospect, naissance: string): Observable<any> {
+    return this.http.post('http://localhost:8080/mutpio/profil/prosp?naissance=' + naissance, prospect);
+  }
+
+
+
+
+
 
 }

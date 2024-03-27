@@ -35,6 +35,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { BesoinsComponent } from './Devis/besoins/besoins.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './Devis/test/test.component';
 
 
 
@@ -44,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     InformationsComponent,
     ProfilComponent,
-    BesoinsComponent
+    BesoinsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
