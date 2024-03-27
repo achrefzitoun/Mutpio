@@ -7,8 +7,11 @@ import com.mutpio.pfe.Repositories.IBeneficiareRepository;
 import com.mutpio.pfe.Repositories.IDevisRepository;
 import com.mutpio.pfe.Services.IProfilService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -61,13 +64,44 @@ public class ProfilRestController {
         return profilService.addEnfants(enfants);
     }
 
+
     @PostMapping("/add")
-    void addDevis(@ModelAttribute Devis devis) {
-        profilService.addProsAndBenef(devis);
+    public ResponseEntity<String> addDevis(@RequestBody Devis devis) {
+        try {
+            profilService.addProsAndBenef(devis);
+            return ResponseEntity.status(HttpStatus.OK).body("Devis ajouté avec succès");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Une erreur s'est produite lors de l'ajout : " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/devis")
+    public ResponseEntity<String> ajouterDevis(@RequestBody Devis devis , @RequestParam("adhesion") String adhesion) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate localDate = LocalDate.parse(adhesion, formatter);
+            devis.setDateAdhesion(localDate);
+            profilService.ajouterDevisAvecProspectEtContact(devis);
+            return ResponseEntity.ok("Devis ajouté avec succès.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erreur lors de l'ajout du devis: " + e.getMessage());
+        }
     }
 
 
-
+    @PostMapping("/prosp")
+    public ResponseEntity<String> addProspect(@RequestBody Prospect prospect, @RequestParam("naissance") String naissance) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate localDate = LocalDate.parse(naissance, formatter);
+            prospect.setDateNaissance(localDate);
+           profilService.addProsp(prospect);
+            return ResponseEntity.ok("Prosp ajouté avec succès.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erreur lors de l'ajout du prospect: " + e.getMessage());
+        }
+    }
 
 
 

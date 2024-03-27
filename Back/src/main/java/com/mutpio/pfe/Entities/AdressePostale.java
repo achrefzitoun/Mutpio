@@ -21,7 +21,7 @@ public class AdressePostale implements Serializable {
 
     String ville;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Prospect prospect;
 
 

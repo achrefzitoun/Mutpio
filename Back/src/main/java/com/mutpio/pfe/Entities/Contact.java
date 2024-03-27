@@ -19,7 +19,7 @@ public class Contact implements Serializable {
 
     String email, numTel;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Prospect prospect;
 
 

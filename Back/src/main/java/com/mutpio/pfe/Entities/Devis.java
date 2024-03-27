@@ -22,10 +22,8 @@ public class Devis implements Serializable {
 
     String numDevis, besoinSpecifique;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate dateAdhesion;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate dateDevis;
 
     LocalDate dateExpiration;

@@ -25,6 +25,6 @@ public class Compte implements Serializable {
     @Enumerated(EnumType.STRING)
     EtatCompte etatCompte;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Prospect prospect;
 }

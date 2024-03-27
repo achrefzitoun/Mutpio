@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -22,18 +23,17 @@ public class Prospect implements Serializable {
 
     String nom, prenom;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate dateNaissance;
 
     @Enumerated(EnumType.STRING)
     Regime regime = Regime.GENERALE;
 
-    Boolean PPE;
+    boolean PPE;
 
     @OneToMany(mappedBy = "prospect")
     Set<Devis> devis;
 
-    @OneToOne(mappedBy = "prospect")
+    @OneToOne(mappedBy = "prospect" )
     Compte compte;
 
     @OneToOne(mappedBy = "prospect")
